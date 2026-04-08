@@ -1,0 +1,215 @@
+@Bean
+CommandLineRunner seedControls(ExistingControlRepository repo) {
+    return args -> {
+
+        repo.deleteAll();
+
+        // ================= PHYSICAL =================
+
+        repo.save(new ExistingControl(AssetType.MACHINE, Hazard.FIRE, List.of(
+                "Install fire extinguishers",
+                "Remove flammable materials",
+                "Regular maintenance",
+                "Fire safety training"
+        )));
+
+        repo.save(new ExistingControl(AssetType.MACHINE, Hazard.MECHANICAL_FAILURE, List.of(
+                "Routine maintenance",
+                "Safety guards installation",
+                "Operator training",
+                "Pre-use inspections"
+        )));
+
+        repo.save(new ExistingControl(AssetType.MACHINE, Hazard.OVERHEATING, List.of(
+                "Cooling systems",
+                "Temperature monitoring",
+                "Regular cleaning",
+                "Avoid overuse"
+        )));
+
+        repo.save(new ExistingControl(AssetType.MACHINE, Hazard.ELECTRICAL_FAULT, List.of(
+                "Proper wiring",
+                "Circuit breakers",
+                "Electrical inspections",
+                "Grounding systems"
+        )));
+
+        repo.save(new ExistingControl(AssetType.BUILDING, Hazard.FIRE, List.of(
+                "Fire alarms",
+                "Emergency exits",
+                "Fire drills",
+                "Smoke detectors"
+        )));
+
+        repo.save(new ExistingControl(AssetType.BUILDING, Hazard.LEAKAGE, List.of(
+                "Pipe inspections",
+                "Waterproofing",
+                "Maintenance checks",
+                "Leak detection systems"
+        )));
+
+        repo.save(new ExistingControl(AssetType.VEHICLE, Hazard.MECHANICAL_FAILURE, List.of(
+                "Regular servicing",
+                "Brake checks",
+                "Driver inspection",
+                "Maintenance logs"
+        )));
+
+        repo.save(new ExistingControl(AssetType.VEHICLE, Hazard.FIRE, List.of(
+                "Fire extinguisher in vehicle",
+                "Fuel system checks",
+                "Avoid overheating",
+                "Emergency training"
+        )));
+
+        repo.save(new ExistingControl(AssetType.EQUIPMENT, Hazard.MECHANICAL_FAILURE, List.of(
+                "Scheduled maintenance",
+                "Proper usage training",
+                "Inspection routines",
+                "Safety guards"
+        )));
+
+        repo.save(new ExistingControl(AssetType.STORAGE, Hazard.FIRE, List.of(
+                "Fire suppression systems",
+                "Safe material storage",
+                "No smoking policies",
+                "Temperature control"
+        )));
+
+        // ================= DIGITAL =================
+
+        repo.save(new ExistingControl(AssetType.SERVER, Hazard.CYBER_ATTACK, List.of(
+                "Firewall setup",
+                "Security patches",
+                "Access control",
+                "Intrusion detection systems"
+        )));
+
+        repo.save(new ExistingControl(AssetType.SERVER, Hazard.SYSTEM_FAILURE, List.of(
+                "Redundant systems",
+                "Regular backups",
+                "Monitoring tools",
+                "Failover mechanisms"
+        )));
+
+        repo.save(new ExistingControl(AssetType.DATABASE, Hazard.DATA_LOSS, List.of(
+                "Automated backups",
+                "Encryption",
+                "Access control",
+                "Recovery plans"
+        )));
+
+        repo.save(new ExistingControl(AssetType.DATABASE, Hazard.UNAUTHORIZED_ACCESS, List.of(
+                "Authentication systems",
+                "Role-based access",
+                "Audit logs",
+                "Encryption"
+        )));
+
+        repo.save(new ExistingControl(AssetType.WEBSITE, Hazard.CYBER_ATTACK, List.of(
+                "HTTPS",
+                "Input validation",
+                "WAF",
+                "Regular security testing"
+        )));
+
+        repo.save(new ExistingControl(AssetType.APPLICATION, Hazard.SYSTEM_FAILURE, List.of(
+                "Error handling",
+                "Testing",
+                "Monitoring",
+                "Backup services"
+        )));
+
+        repo.save(new ExistingControl(AssetType.NETWORK_DEVICE, Hazard.NETWORK_FAILURE, List.of(
+                "Network redundancy",
+                "Monitoring tools",
+                "Regular maintenance",
+                "Backup connections"
+        )));
+
+        // ================= HUMAN =================
+
+        repo.save(new ExistingControl(AssetType.WORKER, Hazard.HUMAN_ERROR, List.of(
+                "Training programs",
+                "Clear procedures",
+                "Supervision",
+                "Checklists"
+        )));
+
+        repo.save(new ExistingControl(AssetType.WORKER, Hazard.FATIGUE, List.of(
+                "Shift planning",
+                "Break schedules",
+                "Workload balance",
+                "Health monitoring"
+        )));
+
+        repo.save(new ExistingControl(AssetType.TECHNICIAN, Hazard.LACK_OF_TRAINING, List.of(
+                "Skill training",
+                "Certifications",
+                "Workshops",
+                "Mentoring"
+        )));
+
+        repo.save(new ExistingControl(AssetType.MANAGER, Hazard.COMMUNICATION_BREAKDOWN, List.of(
+                "Clear communication channels",
+                "Regular meetings",
+                "Reporting systems",
+                "Documentation"
+        )));
+
+        // ================= OPERATIONAL =================
+
+        repo.save(new ExistingControl(AssetType.PRODUCTION_PROCESS, Hazard.PROCESS_FAILURE, List.of(
+                "Standard procedures",
+                "Quality checks",
+                "Monitoring systems",
+                "Staff training"
+        )));
+
+        repo.save(new ExistingControl(AssetType.PRODUCTION_PROCESS, Hazard.DELAY, List.of(
+                "Scheduling systems",
+                "Resource planning",
+                "Monitoring progress",
+                "Backup plans"
+        )));
+
+        repo.save(new ExistingControl(AssetType.DELIVERY_PROCESS, Hazard.SUPPLY_FAILURE, List.of(
+                "Multiple suppliers",
+                "Inventory buffer",
+                "Supplier evaluation",
+                "Contingency plans"
+        )));
+
+        repo.save(new ExistingControl(AssetType.MAINTENANCE_PROCESS, Hazard.PROCESS_FAILURE, List.of(
+                "Maintenance schedules",
+                "Checklists",
+                "Staff training",
+                "Monitoring"
+        )));
+
+        repo.save(new ExistingControl(AssetType.INVENTORY_PROCESS, Hazard.DATA_LOSS, List.of(
+                "Inventory systems backup",
+                "Access control",
+                "Audit logs",
+                "Tracking systems"
+        )));
+
+        repo.save(new ExistingControl(AssetType.PAYMENT_PROCESS, Hazard.UNAUTHORIZED_ACCESS, List.of(
+                "Secure payment gateways",
+                "Authentication",
+                "Encryption",
+                "Monitoring transactions"
+        )));
+
+        // ================= COMMON =================
+
+        repo.save(new ExistingControl(AssetType.OTHER, Hazard.POWER_OUTAGE, List.of(
+                "Backup generators",
+                "UPS systems",
+                "Power monitoring",
+                "Emergency planning"
+        )));
+
+        System.out.println("✅ FULL CONTROL SEED INSERTED");
+    };
+}
